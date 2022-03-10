@@ -31,6 +31,7 @@ public class Authentication {
 
         JsonPath token = response.jsonPath();
 
-         return token.getString("id_token");
+        //id_token "https://www.gmibank.com/api/authenticate" adresindeki response'tan geldi.
+        return token.getString("id_token");
     }
 }
