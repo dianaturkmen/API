@@ -32,9 +32,9 @@ public class GetRequest03 {
 
         response.then().contentType(ContentType.JSON).statusCode(200);
 
-        response.then().body("firstname", equalTo("Mary")
-                                            , "lastname", equalTo("Jones")
-                                            , "bookingdates.checkin", equalTo("2015-06-02")
-                                            , "bookingdates.checkout", equalTo("2018-09-29"));
+        response.then().body("firstname", equalTo("Jim")
+                                            , "lastname", equalTo("Smith")
+                                            , "bookingdates.checkin", equalTo("2018-11-09")
+                                            , "bookingdates.checkout", equalTo("2021-05-07"));
     }
 }

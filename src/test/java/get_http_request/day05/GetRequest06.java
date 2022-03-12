@@ -27,8 +27,8 @@ public class GetRequest06 {
 
         response.then().assertThat().statusCode(200).contentType("application/json");
 
-        response.then().assertThat().body("firstname", Matchers.equalTo("Jim")
-                                           , "totalprice", Matchers.equalTo(411)
-                                            , "bookingdates.checkin", Matchers.equalTo("2019-11-11"));
+        response.then().assertThat().body("firstname", Matchers.equalTo("Mary")
+                                           , "totalprice", Matchers.equalTo(851)
+                                            , "bookingdates.checkin", Matchers.equalTo("2018-05-17"));
     }
 }

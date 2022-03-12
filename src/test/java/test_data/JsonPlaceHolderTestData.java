@@ -1,5 +1,7 @@
 package test_data;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,4 +18,27 @@ public class JsonPlaceHolderTestData {
         expectedData.put("Server", "cloudflare");
         return expectedData;
     }
+
+    /*
+    "userId": 55,
+    "title": "Tidy your room",
+    "completed": false
+  }
+  {
+    "userId": 55,
+    "title": "Tidy your room",
+    "completed": false,
+    "id": …
+   }
+*/
+public JSONObject setUpPostData() {
+    JSONObject expectedRequested = new JSONObject();
+    expectedRequested.put("userId",55);
+    expectedRequested.put("title","Tidy your room");
+    expectedRequested.put( "completed",false);
+    expectedRequested.put("statusCode", 201);
+    expectedRequested.put("id", 201);
+    return expectedRequested;
+
+}
 }

@@ -1,6 +1,7 @@
 package get_http_request.day09;
 
 import base_url.HerOkuAppBaseUrl;
+import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
@@ -49,13 +50,13 @@ public class GetRequest22 extends HerOkuAppBaseUrl {
         // lastname=Can}
 
         //3) REQUEST VE RESPONSE
-        Response response = given().spec(spec05).when().get("/{first}/{second}");
+        Response response = given().contentType("application/json; charset=utf-8").spec(spec05).when().get("/{first}/{second}");
         response.prettyPrint();
 
         //4) DOGRULAMA
         //1. Yol De-Serialization
 
-        HashMap<String, Object> actualData= response.as(HashMap.class);
+        HashMap actualData= response.as(HashMap.class);
         //JSON formatındaki datayı HashMap'e donüştürür.
 
         System.out.println("ACTUAL DATA: " + actualData);
@@ -72,8 +73,8 @@ public class GetRequest22 extends HerOkuAppBaseUrl {
         Assert.assertEquals(expectedTestDataMap.get("totalprice"), actualData.get("totalprice"));
         Assert.assertEquals(expectedTestDataMap.get("depositpaid"), actualData.get("depositpaid"));
 
-        Assert.assertEquals(((Map)expectedTestDataMap.get("bookingdates")).get("checkin"),
-                ((Map)actualData.get("bookingdates")).get("checkin"));
+        Assert.assertEquals(((Map<?, ?>)expectedTestDataMap.get("bookingdates")).get("checkin"),
+                ((Map<?, ?>)actualData.get("bookingdates")).get("checkin"));
         Assert.assertEquals(((Map<?, ?>) expectedTestDataMap.get("bookingdates")).get("checkout"),
                 ((Map<?, ?>) actualData.get("bookingdates")).get("checkout"));
 
